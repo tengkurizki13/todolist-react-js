@@ -161,10 +161,10 @@ function handleSubmit(e){
         <div className="hstack__fPl8y">
           <a className="day__0MayP" >
             <div>
-              <div className="card__bOBV7" data-cy="card-day" onClick={() => {
+              <div className="card__bOBV7" data-cy="card-day" >
+                <h3 data-cy="card-title-Senin" onClick={() => {
                 handleClickDetail("monday")
-              }}>
-                <h3 data-cy="card-title-Senin">Senin </h3>
+              }}>Senin </h3>
                     {days.monday > 0 ? (
                         <p data-cy="card-desc-Senin" className="not_empty__kDILV"> {days.monday} Mata Kuliah</p>
                       ) : (
@@ -186,10 +186,10 @@ function handleSubmit(e){
           </a>
           <a className="day__0MayP" >
             <div>
-              <div className="card__bOBV7" data-cy="card-day" onClick={() => {
+              <div className="card__bOBV7" data-cy="card-day" >
+                <h3 data-cy="card-title-Selasa" onClick={() => {
                 handleClickDetail("tuesday")
-              }}>
-                <h3 data-cy="card-title-Selasa">Selasa </h3>
+              }}>Selasa </h3>
                 {days.tuesday > 0 ? (
                         <p data-cy="card-desc-Selasa" className="not_empty__kDILV"> {days.tuesday} Mata Kuliah</p>
                       ) : (
@@ -211,10 +211,10 @@ function handleSubmit(e){
           </a>
           <a className="day__0MayP" >
             <div>
-              <div className="card__bOBV7" data-cy="card-day" onClick={() => {
+              <div className="card__bOBV7" data-cy="card-day" >
+                <h3 data-cy="card-title-Rabu" onClick={() => {
                 handleClickDetail("wednesday")
-              }}>
-                <h3 data-cy="card-title-Rabu">Rabu </h3>
+              }}>Rabu </h3>
                 {days.wednesday > 0 ? (
                         <p data-cy="card-desc-Rabu" className="not_empty__kDILV"> {days.wednesday} Mata Kuliah</p>
                       ) : (
@@ -236,10 +236,10 @@ function handleSubmit(e){
             </a>
             <a className="day__0MayP" >
               <div>
-                <div className="card__bOBV7" data-cy="card-day" onClick={() => {
+                <div className="card__bOBV7" data-cy="card-day" >
+                  <h3 data-cy="card-title-Kamis" onClick={() => {
                   handleClickDetail("thursday")
-                }}>
-                  <h3 data-cy="card-title-Kamis">Kamis </h3>
+                }}>Kamis </h3>
                   {days.thursday > 0 ? (
                         <p data-cy="card-desc-Kamis" className="not_empty__kDILV"> {days.thursday} Mata Kuliah</p>
                       ) : (
@@ -261,10 +261,10 @@ function handleSubmit(e){
             </a>
             <a className="day__0MayP" >
               <div>
-                <div className="card__bOBV7" data-cy="card-day" onClick={() => {
+                <div className="card__bOBV7" data-cy="card-day" >
+                  <h3 data-cy="card-title-Jumat" onClick={() => {
                   handleClickDetail("friday")
-                }}>
-                  <h3 data-cy="card-title-Jumat">Jumat </h3>
+                }}>Jumat </h3>
                   {days.friday > 0 ? (
                         <p data-cy="card-desc-Jumat" className="not_empty__kDILV"> {days.friday} Mata Kuliah</p>
                       ) : (
@@ -299,7 +299,7 @@ function handleSubmit(e){
                       <div className="p20 gapFlex">
                         <div className="input__HyxCB fullWidth__SF77u">
                           <label>Mata Kuliah</label>
-                          <input placeholder="Masukkan mata kuliah" className="fullWidth__SF77u" name="matkul"  data-cy="form-matkul"  onChange={(e) => { handleChange(e)}}/>
+                          <input placeholder="Masukkan mata kuliah" type="text" className="fullWidth__SF77u" name="matkul"  data-cy="form-matkul"  onChange={(e) => { handleChange(e)}}/>
                         </div>
                         <div className="input__uzWsy fullWidth__Itihh">
                           <label for="form-day">Pilih Hari</label>
@@ -311,8 +311,6 @@ function handleSubmit(e){
                                 <div className=" css-14el2xx-placeholder" id="react-select-4-placeholder">{isDay}</div>
                                 <div className=" css-ackcql" data-value="">
                                   <input className="" autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-4-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false"  aria-haspopup="true" role="combobox" aria-describedby="react-select-4-placeholder" style={inputStyle} />
-                                                                                             
-                                                                                            
                                 </div>
                               </div>
                               <div className=" css-1wy0on6">
