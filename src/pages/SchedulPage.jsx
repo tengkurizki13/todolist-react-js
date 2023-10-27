@@ -69,7 +69,7 @@ const handleSubmitDeleted = (e) => {
     setModif(true)
     setTimeout(() => {
     setModif(false)
-    }, 2000);
+    }, 1000);
   })
 };
 
@@ -79,6 +79,13 @@ const handleChange = (e) => {
     [e.target.name]: e.target.value
   });
 }
+
+
+const handleClickOut = () => {
+  localStorage.clear();
+  navigate("/")
+};
+
 
 useEffect(() => {
   if (form.matkul !== "") {
@@ -150,7 +157,7 @@ const translatedDay = translations[day];
         <div className="header_container__EVhPL center__EXlFe">
           <h1 data-cy="header-title" style={divNavStyle}>GetJadwal</h1>
           <div className="spacer__qkkG9"></div>
-          <button className="btn__tq85o" data-cy="btn-logout">Check out | rizki@gmail.com</button>
+          <button className="btn__tq85o" data-cy="btn-logout" onClick={handleClickOut}>Check out | rizki@gmail.com</button>
         </div>
       </header>
 
