@@ -1,4 +1,5 @@
-import { useEffect,useState } from "react"
+import React, { useEffect,useState } from "react"
+import Select from 'react-select';
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux"
 import { fetchDayHandler,fetchDaysHandler,addSchedulHandler } from "../store/actions/actionCreator"
@@ -9,11 +10,22 @@ function HomePage() {
   const [modal,setModal] = useState(false)
   const [isSeleted,setIsSeleted] = useState(false)
   const [isDisabled,setIsDisabled] = useState(true)
-  const [isDay,setIsDay] = useState("")
+  const [isDay,setIsDay] = useState("Select...")
   const [isDaySubmit,setIsDaySubmit] = useState("")
+  const [inputValue, setInputValue] = useState('');
+  const [selectedOption, setSelectedOption] = useState(null);
+
   const [form, setForm] = useState({
     matkul: "",
   })
+
+  const options = [
+    { value: 'monday', label: 'Senin' },
+    { value: 'tuesday', label: 'Selasa' },
+    { value: 'wednesday', label: 'Rabu' },
+    { value: 'thursday', label: 'Kamis' },
+    { value: 'friday', label: "Jum'at" },
+  ];
   const {days,dataMonday,dataTuesday,dataWednesday,dataThursday,dataFriday} = useSelector((state) => state.day)
   const email = localStorage.getItem('email');
 
@@ -33,13 +45,23 @@ const handleClickOut = () => {
   navigate("/")
 };
 
+// =============
+const handleChange = (selectedOption) => {
+  setSelectedOption(selectedOption);
+};
+
+const handleInputChange = (inputValue) => {
+  setInputValue(inputValue);
+};
+// ============
+
 useEffect(() => {
-  if (isDaySubmit === "" || isDay === "" || form.matkul === "" ) {
-    setIsDisabled(true);
-  } else {
+  if (isDaySubmit !== "" || isDay !== "Select..." || form.matkul !== "" ) {
     setIsDisabled(false);
+  } else {
+    setIsDisabled(true);
   }
-}, [isDay,isDaySubmit,form.matkul]);
+}, [isDay,isDaySubmit]);
 
 const handleClickOpenModal = () => {
   setModal(true)
@@ -47,7 +69,7 @@ const handleClickOpenModal = () => {
 
 const handleClickCloseModal = () => {
   setModal(false)
-  setIsDay("")
+  setIsDay("Select...")
   setIsDaySubmit("")
 };
 
@@ -92,12 +114,12 @@ const handleClickSelectDay = (day) => {
   }
 };
 
-function handleChange(e){
-  setForm({
-    ...form,
-    [e.target.name] : e.target.value
-  })
-}
+// function handleChange(e){
+//   setForm({
+//     ...form,
+//     [e.target.name] : e.target.value
+//   })
+// }
 
 function handleSubmit(e){
   e.preventDefault()
@@ -306,24 +328,8 @@ function handleSubmit(e){
                           <div className=" css-b62m3t-container" id="form-day" data-cy="form-day">
                             <span id="react-select-4-live-region" className="css-7pg0cj-a11yText"></span>
                             <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" className="css-7pg0cj-a11yText"></span>
-                            {/* <div className=" css-1s2u09g-control" onClick={handleClickSelect}> */}
-                            <div className=" css-1s2u09g-control">
-                                <select
-                                  id="day-select"
-                                  onChange={(event) => {
-                                    const selectedDay = event.target.value;
-                                    handleClickSelectDay(selectedDay);
-                                  }}
-                                >
-                                 <option value="" selected={isDay === ''}>select..</option>
-                                  <option value="monday">Senin</option>
-                                  <option value="tuesday">Selasa</option>
-                                  <option value="wednesday">Rabu</option>
-                                  <option value="thursday">Kamis</option>
-                                  <option value="friday">Jum'at</option>
-                                </select>
-
-                              {/* <div className=" css-1d8n9bt">
+                            {/* <div className=" css-1s2u09g-control">
+                              <div className=" css-1d8n9bt">
                                 <div className=" css-14el2xx-placeholder" id="react-select-4-placeholder">{isDay}</div>
                                 <div className=" css-ackcql" data-value="">
                                   <input className="" autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-4-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false"  aria-haspopup="true" role="combobox" aria-describedby="react-select-4-placeholder" style={inputStyle} />
@@ -336,10 +342,19 @@ function handleSubmit(e){
                                     <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path>
                                   </svg>
                                 </div>
-                              </div> */}
-                            </div>
+                              </div>
+                            </div> */}
 
-                          {/* {isSeleted ? 
+                              <Select
+                                  value={selectedOption}
+                                  options={options}
+                                  onChange={handleChange}
+                                  onInputChange={handleInputChange}
+                                  inputValue={inputValue}
+                                  isSearchable={true}
+                                />
+{/* 
+                          {isSeleted ? 
                           <div className="days mt-2">
                             <div className=" css-1s2u09g-control">
                               <div className=" css-1d8n9bt">
@@ -348,7 +363,7 @@ function handleSubmit(e){
                                 <div className=" css-ackcql" data-value="">
                                 </div>
                               </div>
-                            </div>false
+                            </div>
 
                             <div className=" css-1s2u09g-control">
                               <div className=" css-1d8n9bt">
