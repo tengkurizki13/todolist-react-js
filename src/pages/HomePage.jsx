@@ -324,53 +324,162 @@ function handleSubmit(e){
                             </div>
 
                           {isSeleted ? 
-                          <div className="days mt-2">
-                            <div className=" css-1s2u09g-control">
-                              <div className=" css-1d8n9bt">
-                                <div className=" css-14el2xx-items" id="react-select-4-placeholder fw-bold" onClick={() => {handleClickSelectDay("monday")}}>Senin</div>
-                                <input className="" autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-4-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false"  aria-haspopup="true" role="combobox" aria-describedby="react-select-4-placeholder" style={inputStyle} />
-                                <div className=" css-ackcql" data-value="">
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className=" css-1s2u09g-control">
-                              <div className=" css-1d8n9bt">
-                                <div className=" css-14el2xx-items" id="react-select-4-placeholder fw-bold" onClick={() => {handleClickSelectDay("tuesday")}}>Selasa</div>
-                                   <input className="" autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-4-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false"  aria-haspopup="true" role="combobox" aria-describedby="react-select-4-placeholder" style={inputStyle} />
-                                <div className=" css-ackcql" data-value="">
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className=" css-1s2u09g-control">
-                              <div className=" css-1d8n9bt">
-                                <div className=" css-14el2xx-items" id="react-select-4-placeholder fw-bold" onClick={() => {handleClickSelectDay("wednesday")}}>Rabu</div>
-                                   <input className="" autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-4-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false"  aria-haspopup="true" role="combobox" aria-describedby="react-select-4-placeholder" style={inputStyle} />
-                                <div className=" css-ackcql" data-value="">
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className=" css-1s2u09g-control">
-                              <div className=" css-1d8n9bt">
-                                <div className=" css-14el2xx-items" id="react-select-4-placeholder fw-bold" onClick={() => {handleClickSelectDay("thursday")}}>Kamis</div>
-                                   <input className="" autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-4-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false"  aria-haspopup="true" role="combobox" aria-describedby="react-select-4-placeholder" style={inputStyle} />
-                                <div className=" css-ackcql" data-value="">
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className=" css-1s2u09g-control">
-                              <div className=" css-1d8n9bt">
-                                <div className=" css-14el2xx-items" id="react-select-4-placeholder fw-bold" onClick={() => {handleClickSelectDay("friday")}}>Jum'at</div>
-                                   <input className="" autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-4-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false"  aria-haspopup="true" role="combobox" aria-describedby="react-select-4-placeholder" style={inputStyle} />
-                                <div className=" css-ackcql" data-value="">
-                                </div>
-                              </div>
-                            </div>
-
-                            </div> 
+                         <div className="days mt-2">
+                         <div className="css-1s2u09g-control">
+                           <div className="css-1d8n9bt">
+                             <div
+                               className="css-14el2xx-items"
+                               id="monday"
+                               onClick={() => {
+                                 handleClickSelectDay("monday");
+                               }}
+                             >
+                               Senin
+                             </div>
+                             <input
+                               className=""
+                               autocapitalize="none"
+                               autocomplete="off"
+                               autocorrect="off"
+                               id="input-monday"
+                               spellcheck="false"
+                               tabindex="0"
+                               type="text"
+                               aria-autocomplete="list"
+                               aria-expanded="false"
+                               aria-haspopup="true"
+                               role="combobox"
+                               aria-describedby="monday"
+                               style={inputStyle}
+                             />
+                             <div className="css-ackcql" data-value=""></div>
+                           </div>
+                         </div>
+                       
+                         <div className="css-1s2u09g-control">
+                           <div className="css-1d8n9bt">
+                             <div
+                               className="css-14el2xx-items"
+                               id="tuesday"
+                               onClick={() => {
+                                 handleClickSelectDay("tuesday");
+                               }}
+                             >
+                               Selasa
+                             </div>
+                             <input
+                               className=""
+                               autocapitalize="none"
+                               autocomplete="off"
+                               autocorrect="off"
+                               id="input-tuesday"
+                               spellcheck="false"
+                               tabindex="0"
+                               type="text"
+                               aria-autocomplete="list"
+                               aria-expanded="false"
+                               aria-haspopup="true"
+                               role="combobox"
+                               aria-describedby="tuesday"
+                               style={inputStyle}
+                             />
+                             <div className="css-ackcql" data-value=""></div>
+                           </div>
+                         </div>
+                       
+                         <div className="css-1s2u09g-control">
+                           <div className="css-1d8n9bt">
+                             <div
+                               className="css-14el2xx-items"
+                               id="wednesday"
+                               onClick={() => {
+                                 handleClickSelectDay("wednesday");
+                               }}
+                             >
+                               Rabu
+                             </div>
+                             <input
+                               className=""
+                               autocapitalize="none"
+                               autocomplete="off"
+                               autocorrect="off"
+                               id="input-wednesday"
+                               spellcheck="false"
+                               tabindex="0"
+                               type="text"
+                               aria-autocomplete="list"
+                               aria-expanded="false"
+                               aria-haspopup="true"
+                               role="combobox"
+                               aria-describedby="wednesday"
+                               style={inputStyle}
+                             />
+                             <div className="css-ackcql" data-value=""></div>
+                           </div>
+                         </div>
+                       
+                         <div className="css-1s2u09g-control">
+                           <div className="css-1d8n9bt">
+                             <div
+                               className="css-14el2xx-items"
+                               id="thursday"
+                               onClick={() => {
+                                 handleClickSelectDay("thursday");
+                               }}
+                             >
+                               Kamis
+                             </div>
+                             <input
+                               className=""
+                               autocapitalize="none"
+                               autocomplete="off"
+                               autocorrect="off"
+                               id="input-thursday"
+                               spellcheck="false"
+                               tabindex="0"
+                               type="text"
+                               aria-autocomplete="list"
+                               aria-expanded="false"
+                               aria-haspopup="true"
+                               role="combobox"
+                               aria-describedby="thursday"
+                               style={inputStyle}
+                             />
+                             <div className="css-ackcql" data-value=""></div>
+                           </div>
+                         </div>
+                       
+                         <div className="css-1s2u09g-control">
+                           <div className="css-1d8n9bt">
+                             <div
+                               className="css-14el2xx-items"
+                               id="friday"
+                               onClick={() => {
+                                 handleClickSelectDay("friday");
+                               }}
+                             >
+                               Jum'at
+                             </div>
+                             <input
+                               className=""
+                               autocapitalize="none"
+                               autocomplete="off"
+                               autocorrect="off"
+                               id="input-friday"
+                               spellcheck="false"
+                               tabindex="0"
+                               type="text"
+                               aria-autocomplete="list"
+                               aria-expanded="false"
+                               aria-haspopup="true"
+                               role="combobox"
+                               aria-describedby="friday"
+                               style={inputStyle}
+                             />
+                             <div className="css-ackcql" data-value=""></div>
+                           </div>
+                         </div>
+                       </div>
                              : <div></div>}
 
 
