@@ -231,7 +231,7 @@ const translatedDay = translations[day];
                   <img src={deleteimg} alt="delete-icon"/>
                   </div>
                 <h2>Hapus Mata Kuliah</h2>
-                <p className="modal-text">Apakah anda yakin menghapus mata kuliah ad?</p>
+                <p className="modal-text">Apakah anda yakin menghapus mata kuliah Statistika?</p>
                 <div className="action__3kGZg">
                   <button className="btn__tq85o gray__eEGKP" type="button" data-cy="btn-close" onClick={handleClickCloseModlet}>Batal</button>
                   <button className="btn__tq85o danger__N5jkG" data-cy="btn-submit" type="submit" >Hapus</button>
