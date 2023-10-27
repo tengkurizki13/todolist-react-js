@@ -56,14 +56,17 @@ const handleInputChange = (inputValue) => {
 // ============
 
 useEffect(() => {
-  if (isDaySubmit !== "" || isDay !== "Select..." || form.matkul !== "" ) {
-    setIsDisabled(false);
-  } else {
+
+  console.log(selectedOption == null || form.matkul === "" );
+  if (selectedOption == null || form.matkul === "" ) {
     setIsDisabled(true);
+  } else {
+    setIsDisabled(false);
   }
-}, [isDay,isDaySubmit]);
+}, [selectedOption,form.matkul]);
 
 const handleClickOpenModal = () => {
+  setSelectedOption(null)
   setModal(true)
 };
 
@@ -114,18 +117,17 @@ const handleClickSelectDay = (day) => {
   }
 };
 
-// function handleChange(e){
-//   setForm({
-//     ...form,
-//     [e.target.name] : e.target.value
-//   })
-// }
+function handleChangeMatkul(e){
+  setForm({
+    ...form,
+    [e.target.name] : e.target.value
+  })
+}
 
 function handleSubmit(e){
   e.preventDefault()
 
-  console.log(email,"email",form.matkul,"titile",isDay);
-  dispatch(addSchedulHandler(email,form.matkul,isDaySubmit))
+  dispatch(addSchedulHandler(email,form.matkul,selectedOption.value))
   .then(() => {
     dispatch(fetchDaysHandler(email))
     dispatch(fetchDayHandler(email,"monday"))
@@ -321,34 +323,18 @@ function handleSubmit(e){
                       <div className="p20 gapFlex">
                         <div className="input__HyxCB fullWidth__SF77u">
                           <label>Mata Kuliah</label>
-                          <input placeholder="Masukkan mata kuliah" type="text" className="fullWidth__SF77u" name="matkul"  data-cy="form-matkul"  onChange={(e) => { handleChange(e)}}/>
+                          <input placeholder="Masukkan mata kuliah" type="text" className="fullWidth__SF77u" name="matkul"  data-cy="form-matkul"  onChange={(e) => { handleChangeMatkul(e)}}/>
                         </div>
                         <div className="input__uzWsy fullWidth__Itihh">
                           <label for="form-day">Pilih Hari</label>
                           <div className=" css-b62m3t-container" id="form-day" data-cy="form-day">
                             <span id="react-select-4-live-region" className="css-7pg0cj-a11yText"></span>
                             <span aria-live="polite" aria-atomic="false" aria-relevant="additions text" className="css-7pg0cj-a11yText"></span>
-                            {/* <div className=" css-1s2u09g-control">
-                              <div className=" css-1d8n9bt">
-                                <div className=" css-14el2xx-placeholder" id="react-select-4-placeholder">{isDay}</div>
-                                <div className=" css-ackcql" data-value="">
-                                  <input className="" autocapitalize="none" autocomplete="off" autocorrect="off" id="react-select-4-input" spellcheck="false" tabindex="0" type="text" aria-autocomplete="list" aria-expanded="false"  aria-haspopup="true" role="combobox" aria-describedby="react-select-4-placeholder" style={inputStyle} />
-                                </div>
-                              </div>
-                              <div className=" css-1wy0on6">
-                                <span className=" css-1okebmr-indicatorSeparator"></span>
-                                <div className=" css-tlfecz-indicatorContainer" aria-hidden="true">
-                                  <svg height="20" width="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" className="css-8mmkcg">
-                                    <path d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"></path>
-                                  </svg>
-                                </div>
-                              </div>
-                            </div> */}
 
                               <Select
                                   value={selectedOption}
                                   options={options}
-                                  onChange={handleChange}
+                                  onChange={(e) => { handleChange(e)}}
                                   onInputChange={handleInputChange}
                                   inputValue={inputValue}
                                   isSearchable={true}
